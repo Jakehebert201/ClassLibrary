@@ -227,6 +227,7 @@ public class ClassLibrary
 
     public static void BogoSort<T>(T[] array) where T : IComparable<T>
     {
+        int elements = array.Length;
         Stopwatch sw = new Stopwatch();
         sw.Start();
         Random randy = new Random();
@@ -236,6 +237,7 @@ public class ClassLibrary
         }
         sw.Stop();
         System.Console.WriteLine("Bogo Sort took {0} ms, that's pretty impressive!", sw.ElapsedMilliseconds);
+        AppendToFile("BogoTimes.csv", (double)sw.ElapsedMilliseconds / 1000, elements);
     }
     private static bool IsSorted<T>(T[] array) where T : IComparable<T>
     {
@@ -282,7 +284,24 @@ public class ClassLibrary
         // Convert the List<string> to an array and return it
         return lines.ToArray();
     }
+    public static void AppendToFile(string filename, double completionTime, int arrSize)
+    {
+        // Check if file exists before creating StreamWriter
+        bool fileExists = File.Exists(filename);
 
+        using (StreamWriter sw = new StreamWriter(filename, true))
+        {
+            if (!fileExists)
+            {
+                // File was just created, so add the header
+                sw.WriteLine("This is a file to log the bogo sort times!");
+                sw.WriteLine("Completion Time, Array Size");
+            }
+
+            // Append the new data
+            sw.WriteLine($"{completionTime}, {arrSize}");
+        } // StreamWriter is automatically flushed and closed here, due to 'using'
+    }
 
 
 

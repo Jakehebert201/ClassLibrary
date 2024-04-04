@@ -39,7 +39,7 @@ public class Program
 
         Console.WriteLine("Before Bogo Sort\n {0}", string.Join(",", bogoTest));
 
-        string[] intBogoTest = ClassLibrary.GetArrayFromFile("random_ints_small_range.csv");
+        string[] intBogoTest = ClassLibrary.GetArrayFromFile("sevenints.csv");
         for (int i = 0; i < intBogoTest.Length - 1; ++i)
         {
             int.Parse(intBogoTest[i]);

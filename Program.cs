@@ -111,14 +111,39 @@ public class ClassLibrary
             }
             if (!swapped)
                 break;
-
-
         }
-
-
         return arr;
 
     }
+
+    /// <summary>
+    /// Bubble sorts a generic data type, so anything can be churned through it!
+    /// </summary>
+    /// <param name="data"></param>
+    /// <typeparam name="T"></typeparam>
+    public static void GenericBubbleSort<T>(T[] data) where T : IComparable<T>
+    {
+
+        T tmp = default;
+        bool swapped;
+        for (int i = 0; i < data.Length; ++i)
+        {
+            swapped = false;
+            for (int j = 0; j < data.Length - 1 - i; ++j)
+            {
+                if (data[j].CompareTo(data[j + 1]) > 0)
+                {
+                    tmp = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = tmp;
+                    swapped = true;
+                }
+            }
+            if (!swapped)
+                break;
+        }
+    }
+
 }
 
 

@@ -12,3 +12,4 @@
 /home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.pdb
 /home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.genruntimeconfig.cache
 /home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ref/ClassLibrary.dll
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.sourcelink.json

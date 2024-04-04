@@ -1,4 +1,5 @@
 ﻿using System.Buffers;
+using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 
 
@@ -222,6 +223,64 @@ public class ClassLibrary
 
             Merge(array, leftStart, middle, rightEnd);
         }
+    }
+
+    public static void BogoSort<T>(T[] array) where T : IComparable<T>
+    {
+        Stopwatch sw = new Stopwatch();
+        sw.Start();
+        Random randy = new Random();
+        while (!IsSorted(array))
+        {
+            Shuffle(array, randy);
+        }
+        sw.Stop();
+        System.Console.WriteLine("Bogo Sort took {0} ms, that's pretty impressive!", sw.ElapsedMilliseconds);
+    }
+    private static bool IsSorted<T>(T[] array) where T : IComparable<T>
+    {
+        for (int i = 1; i < array.Length; ++i)
+        {
+            if (array[i - 1].CompareTo(array[i]) > 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    private static void Shuffle<T>(T[] array, Random randy)
+    {
+        int n = array.Length;
+        while (n > 1)
+        {
+            int k = randy.Next(n--);
+            T temp = array[n];
+            array[n] = array[k];
+            array[k] = temp;
+        }
+        System.Console.WriteLine($"Bogo sort has this: {string.Join(" ", array)}");
+    }
+    /// <summary>
+    /// Incredibly simple implementation, I think it works.
+    /// </summary>
+    /// <param name="filename"></param>
+    /// <returns></returns>
+    public static string[] GetArrayFromFile(string filename)
+    {
+        // Use a List<string> for dynamic collection of lines
+        List<string> lines = new List<string>();
+
+        // Use StreamReader within a using statement for automatic disposal
+        using (StreamReader sr = new StreamReader(filename))
+        {
+            while (!sr.EndOfStream)
+            {
+                lines.Add(sr.ReadLine());
+            }
+        }
+
+        // Convert the List<string> to an array and return it
+        return lines.ToArray();
     }
 
 

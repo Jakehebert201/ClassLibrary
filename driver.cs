@@ -35,6 +35,17 @@ public class Program
         ClassLibrary.MergeSort(alphabet2, 0, alphabet2.Length - 1);
         Console.WriteLine($"Merge Sorted Alphabet: {string.Join(",", alphabet2)}");
 
+        string[] bogoTest = ClassLibrary.GetArrayFromFile("random_strings.csv");
+
+        Console.WriteLine("Before Bogo Sort\n {0}", string.Join(",", bogoTest));
+
+        string[] intBogoTest = ClassLibrary.GetArrayFromFile("random_ints_small_range.csv");
+        for (int i = 0; i < intBogoTest.Length - 1; ++i)
+        {
+            int.Parse(intBogoTest[i]);
+        }
+        ClassLibrary.BogoSort(intBogoTest);
+
 
 
 

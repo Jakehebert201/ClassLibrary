@@ -224,7 +224,11 @@ public class ClassLibrary
             Merge(array, leftStart, middle, rightEnd);
         }
     }
-
+    /// <summary>
+    /// An awful sorting algorithm with a O((n+1)!), anything over 10 data points WILL take over 5 minutes to sort.
+    /// </summary>
+    /// <param name="array"></param>
+    /// <typeparam name="T"></typeparam>
     public static void BogoSort<T>(T[] array) where T : IComparable<T>
     {
         int elements = array.Length;
@@ -236,9 +240,20 @@ public class ClassLibrary
             Shuffle(array, randy);
         }
         sw.Stop();
-        System.Console.WriteLine("Bogo Sort took {0} ms, that's pretty impressive!", sw.ElapsedMilliseconds);
+        double seconds = (double)sw.ElapsedMilliseconds / 1000;
+        double minutes = seconds / 60;
+        double hours = minutes / 60;
+        double days = hours / 24;
+        System.Console.WriteLine("Bogo Sort took {0} seconds, that's pretty impressive!", (double)sw.ElapsedMilliseconds / 1000);
+        System.Console.WriteLine("That's {0} minutes, {1} hours, or {2} days!", (double)(sw.ElapsedMilliseconds / 60000), sw.ElapsedMilliseconds);
         AppendToFile("BogoTimes.csv", (double)sw.ElapsedMilliseconds / 1000, elements);
     }
+    /// <summary>
+    /// checks to see if the array is sorted
+    /// </summary>
+    /// <param name="array"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     private static bool IsSorted<T>(T[] array) where T : IComparable<T>
     {
         for (int i = 1; i < array.Length; ++i)
@@ -250,6 +265,12 @@ public class ClassLibrary
         }
         return true;
     }
+    /// <summary>
+    /// Shuffles array for bogo sort
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="randy"></param>
+    /// <typeparam name="T"></typeparam>
     private static void Shuffle<T>(T[] array, Random randy)
     {
         int n = array.Length;
@@ -284,6 +305,13 @@ public class ClassLibrary
         // Convert the List<string> to an array and return it
         return lines.ToArray();
     }
+
+    /// <summary>
+    /// uses StreamWriter to create and append data to a file for bogo sort shenanigans
+    /// </summary>
+    /// <param name="filename"></param>
+    /// <param name="completionTime"></param>
+    /// <param name="arrSize"></param>
     public static void AppendToFile(string filename, double completionTime, int arrSize)
     {
         // Check if file exists before creating StreamWriter
@@ -300,7 +328,7 @@ public class ClassLibrary
 
             // Append the new data
             sw.WriteLine($"{completionTime}, {arrSize}");
-        } // StreamWriter is automatically flushed and closed here, due to 'using'
+        }
     }
 
 

@@ -30,7 +30,10 @@ public class Program
             basicallyAStringindexer++;
         }
         Console.WriteLine("This is basically a string:\t {0}", string.Join("", basicallyAString));
+        char[] alphabet2 = { 'a', 'l', 'c', 'd', 'f', 'g', 'h', 'i', 'b', 'j', 'k', 'm', 'e', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'q', 'z' };
 
+        ClassLibrary.MergeSort(alphabet2, 0, alphabet2.Length - 1);
+        Console.WriteLine($"Merge Sorted Alphabet: {string.Join(",", alphabet2)}");
 
 
 

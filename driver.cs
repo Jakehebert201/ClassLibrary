@@ -44,9 +44,7 @@ public class Program
         {
             int.Parse(intBogoTest[i]);
         }
-        ClassLibrary.BogoSort(intBogoTest);
-
-
+        //ClassLibrary.BogoSort(intBogoTest);
 
 
     }
